@@ -104,16 +104,17 @@ plot(model.sw.both$bx)
 
 
 ### Gráficos
+age = c(0,1,seq(5,95,by=5))
+axis(1,at = 1:21,labels = age, las = 2)
 
 plot(model.sw.both$ax, xaxt = "n", xlab= "", ylab = "ax", main = "Gráfico de ax, Lee-Carter, Pop.Total, Brasil",
      type = "b", col = '#EB2559') #gráfico dos ax's
-axis(1,at = 1:23,labels = age, las = 2)
+#axis(1,at = 1:23,labels = age, las = 2)
 
 plot(model.sw.both$bx, xaxt = "n", xlab= "", ylab = "bx", main = "Gráfico de bx, Lee-Carter, Pop.Total, Brasil",
      type = "b", col = '#EB2559') #gráfico dos bx's
 
-age = c(0,1,seq(5,95,by=5))
-axis(1,at = 1:21,labels = age, las = 2)
+
 
 # preparar os dados de ax e bx
 Parametros_f<- data.frame(model.sw.both$ax, model.sw.both$bx)
@@ -188,12 +189,12 @@ legend("bottomright", c("2018","2027", "2042"), cex=0.8,
        col=c("green","red", "blue"), lty=1:3)
 
 #### Gráfico de superficie (heatplot - permite avaliar mais dados juntos)
-f.nmx = as.matrix(f.nmx)
+both.nmx = as.matrix(both.nmx)
 row = c(0,1,seq(5,105, by=5)) #0 a 100 tamanho do seu intervalo etario
 colunm = seq(2017,2066) #intervalo de projeção
-dimnames(f.nmx) =list(row,colunm)
+dimnames(both.nmx) =list(row,colunm)
 require(lattice)
-levelplot(f.nmx, ylab="Ano", xlab="Idade",strip = FALSE, main="Mortality Rates, Females, BR, 2017 a 2066")
+levelplot(both.nmx, ylab="Ano", xlab="Idade",strip = FALSE, main="Mortality Rates, Females, BR, 2017 a 2066")
 
 
 
